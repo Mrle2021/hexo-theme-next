@@ -20,6 +20,13 @@
     </span>
 
     {%- if post.header !== false %}
+      {% if is_index and post.cover %}
+        <div class="post-cover">
+          <a href="{{ url_for(post.path) }}">
+            <img src="{{ post.cover }}" alt="{{ post.title }}" style="width: 100%; max-height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;" />
+          </a>
+        </div>
+      {% endif %}
       <header class="post-header">
         <{%- if is_index %}h2{% else %}h1{%- endif %} class="post-title{%- if post.direction and post.direction.toLowerCase() === 'rtl' %} rtl{%- endif %}" itemprop="name headline">
           {# Link posts #}
