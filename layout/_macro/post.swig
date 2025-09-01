@@ -1,6 +1,11 @@
-  {##################}
+{##################}
   {### POST BLOCK ###}
   {##################}
+  {% if post.banner %}
+    <div class="post-banner">
+      <img src="{{ post.banner }}" alt="文章封面" style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 12px; margin-bottom: 1rem;" />
+    </div>
+  {% endif %}
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="{{ post.lang or config.language }}">
     <link itemprop="mainEntityOfPage" href="{{ post.permalink }}">
 
@@ -177,6 +182,13 @@
       {%- endif %}
 
       {%- if is_index %}
+        {% if post.banner %}
+          <div class="post-banner index-banner">
+            <a href="{{ url_for(post.path) }}">
+              <img src="{{ post.banner }}" alt="缩略图" style="width: 100%; max-height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 0.5rem;" />
+            </a>
+          </div>
+        {% endif %}
         {%- if post.description and theme.excerpt_description %}
           <p>{{ post.description }}</p>
           <!--noindex-->
