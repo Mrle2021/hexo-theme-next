@@ -241,6 +241,9 @@ post_meta:
     enable: true
     another_day: true
   categories: true
+  tags: true
+  wordcount: true # ✅ 显示总字数
+  reading_time: true # ✅ 显示阅读时间
 
 # Post wordcount display settings
 # Dependencies: https://github.com/theme-next/hexo-symbols-count-time
